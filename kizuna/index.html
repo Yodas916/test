@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IP Address Note</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .note {
+            background-color: #f0f8ff;
+            border: 1px solid #ccc;
+            padding: 15px;
+            border-radius: 5px;
+        }
+        .ip-item {
+            display: flex;
+            align-items: center;
+            background-color: #fff;
+            
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 5px;
+            font-family: monospace;
+            margin-bottom: 10px;
+        }
+        .ip-address {
+            flex: 1;
+            user-select: all; /* Makes it easy to select and copy */
+        }
+        .status-button {
+            margin-left: 10px;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .status-button.green {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .status-button.red {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+    </style>
+    <script>
+        function toggleStatus(button) {
+            if (button.classList.contains('red')) {
+                button.classList.remove('red');
+                button.classList.add('green');
+                button.textContent = 'Ignore';
+            } else if (button.classList.contains('green')) {
+                button.classList.remove('green');
+                button.classList.add('red');
+                button.textContent = 'Block';
+            } else {
+                button.classList.add('red');
+                button.textContent = 'Block';
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="note">
+        <p><strong>Note:</strong> Click and copy each IP address below, then mark it as "Ignore" (green) or "Block" (red) to categorize it:</p>
+        <div class="ip-item">
+            <div class="ip-address">133.237.161.28</div>
+            <button class="status-button red" onclick="toggleStatus(this)">Block</button>
+        </div>
+        <div class="ip-item">
+            <div class="ip-address">179.48.116.167</div>
+            <button class="status-button red" onclick="toggleStatus(this)">Block</button>
+        </div>
+        <div class="ip-item">
+            <div class="ip-address">2.16.181.229</div>
+            <button class="status-button red" onclick="toggleStatus(this)">Block</button>
+        </div>
+        <div class="ip-item">
+            <div class="ip-address">45.130.120.42</div>
+            <button class="status-button red" onclick="toggleStatus(this)">Block</button>
+        </div>
+    </div>
+</body>
+</html>
+
